@@ -74,7 +74,7 @@ int find_block_to_place_file_from(Block* blocks, File file){
         // Prevent looping forever if there is no space
         if (MAX_LOOP_AMOUNT <= i){ break; }
 
-        int startIndex = (rand() % TOTAL_BLOCKS) + (INODE_SIZE + 1);
+        int startIndex = (rand() % (TOTAL_BLOCKS - INODE_SIZE - 1)) + (INODE_SIZE + 1);
 
         if (startIndex + file.fileSize >= TOTAL_BLOCKS) { continue; }
 
