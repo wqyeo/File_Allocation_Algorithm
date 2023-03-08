@@ -2,26 +2,69 @@
 Some file algorithm implemented as part of University's submission
 
 
-### File Allocation Task
-1. Write a C program to simulate the Linked list, Indexed, and Sequential file allocation in a very simple file system.
+# File Allocation Task
+
+### Sequential Allocation
+1. Write a C program to simulate the sequential file allocation in a very simple file system.
 2. Assume a disk of 32 blocks, each block is of 1 KB size
-3. First 8 blocks (0 to 7) are allocated to the `iNodes` and can’t be used by the file system. Hence blocks
+3. First 8 blocks (0 to 7) are allocated to the “iNodes” and can’t be used by the file system. Hence blocks
 available for allocation are from block 8 to block 31.
 4. Minimum file size is 1 KB. Hence the file system can have minimum of one file of size 24 KB or maximum
 of 24 files.
 5. At the start, it is assumed that the file system has no files.
 6. The program shall ask the user to input the number of files to allocate and their respective names and
 file sizes.
-7. The program shall randomly (set a seed with `srand(seed)` to replicate the randomness) select any free
+7. The program shall randomly (set a seed with srand(seed) to replicate the randomness) select any free
+block as a start block. Check that the start block and the required contiguous blocks are free. If free,
+allocate those blocks to the file. If not free, find next available contiguous blocks.
+8. After allocating blocks for all the files, the program shall print file name, file size, and the contiguously
+allocated blocks for each file. Refer to the program output shown below.
+9. Required test case: Use the example file names and sizes shown above
+10. Not required test cases:
+ * If there are not enough contiguous blocks available for a file, the program can exit.
+ * Program need not implement file deletion or modification. 
+ 
+### Linked List Allocation
+1. Write a C program to simulate the Linked list file allocation in a very simple file system.
+2. Assume a disk of 32 blocks, each block is of 1 KB size
+3. First 8 blocks (0 to 7) are allocated to the “iNodes” and can’t be used by the file system. Hence blocks
+available for allocation are from block 8 to block 31.
+4. Minimum file size is 1 KB. Hence the file system can have minimum of one file of size 24 KB or maximum
+of 24 files.
+5. At the start, it is assumed that the file system has no files.
+6. The program shall ask the user to input the number of files to allocate and their respective names and
+file sizes.
+7. The program shall randomly (set a seed with srand(seed) to replicate the randomness) select any free
 block as a start block. Subsequent blocks shall be randomly picked (based on file size) if free.
 8. All selected blocks of a file shall be maintained in a linked list.
 9. After allocating buffers for all the files, the program shall print file name, file size, and the allocated
 linked list of blocks for each file. Refer to the program output shown below.
-10. Not required test cases:
+10. Required test case: Use the example file names and sizes shown above
+11. Not required test cases:
+ * If there are not enough contiguous blocks available for a file, the program can exit.
+ * Program need not implement file deletion or modification. 
+ 
+### Indexed File Allocation
+1. Write a C program to simulate the Linked list file allocation in a very simple file system.
+2. Assume a disk of 32 blocks, each block is of 1 KB size
+3. First 8 blocks (0 to 7) are allocated to the “iNodes” and can’t be used by the file system. Hence blocks
+available for allocation are from block 8 to block 31.
+4. Minimum file size is 1 KB. Hence the file system can have minimum of one file of size 24 KB or maximum
+of 24 files.
+5. At the start, it is assumed that the file system has no files.
+6. The program shall ask the user to input the number of files to allocate and their respective names and
+file sizes.
+7. The program shall randomly (set a seed with srand(seed) to replicate the randomness) select any free
+block as a start block. Subsequent blocks shall be randomly picked (based on file size) if free.
+8. The randomly selected blocks of a file shall be maintained in an array.
+9. After allocating buffers for all the files, the program shall print file name, file size, start, and the
+allocated array of blocks for each file. Refer to the program output shown below.
+10. Required test case: Use the example files and sizes shown above
+11. Not required test cases:
  * If there are not enough contiguous blocks available for a file, the program can exit.
  * Program need not implement file deletion or modification. 
 
-### File Handling Task
+# File Handling Task
 1. Create a text file “Lab_Quick.txt” containing the following text:
 `THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG`
 2. Create a c program to read the file `Lab_Quick.txt`.
